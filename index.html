@@ -113,6 +113,7 @@
 
 				const geometry = new THREE.CylinderGeometry( 0.1, 0.1, 0.2, 32 ).translate( 0, 0.1, 0 );
 
+				// 不要
 				// コード内で3Dモデルを作成
 				function onSelect() {
 
@@ -130,9 +131,40 @@
 				}
 
 
-				// 追加
-				// GLTFファイルを使用
+				// // 追加
+				// // GLTFファイルを使用
+				// function loadModel() {
+				// 	const loader = new GLTFLoader();
+
+				// 	loader.load(
+				// 		'cube_small.glb',
+				// 		function (gltf) {
+				// 			const model = gltf.scene;
+				// 			const position = new THREE.Vector3();
+				// 			const quaternion = new THREE.Quaternion();
+				// 			const scale = new THREE.Vector3();
+				// 			reticle.matrix.decompose(position, quaternion, scale);
+				// 			model.position.copy(position);
+				// 			model.quaternion.copy(quaternion);
+				// 			model.scale.copy(scale);
+				// 			scene.add(model);
+				// 		},
+				// 		function (xhr) {
+				// 			console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+				// 		},
+				// 		function (error) {
+				// 			console.error('An error happened', error);
+				// 		}
+				// 	);
+				// }
+
+
+
+
+				// 新しく3Dモデルを表示する際、表示済みの3Dモデルを消す
 				function loadModel() {
+					if (currentModel) scene.remove(currentModel); // 既存のモデルを削除
+
 					const loader = new GLTFLoader();
 
 					loader.load(
@@ -147,6 +179,8 @@
 							model.quaternion.copy(quaternion);
 							model.scale.copy(scale);
 							scene.add(model);
+
+							currentModel = model; // 新しいモデルを保持
 						},
 						function (xhr) {
 							console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
@@ -155,7 +189,8 @@
 							console.error('An error happened', error);
 						}
 					);
-				}
+			}
+
 
 
 
