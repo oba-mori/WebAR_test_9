@@ -40,28 +40,27 @@
 
 
 		<!--  importmapと一緒に使用し、three.module.jsをimportするため -->
-		<!-- <script type="importmap">
+		<script type="importmap">
 			{
 				"imports": {
 					"three": "https://unpkg.com/three/build/three.module.js"
 				}
 			}
 		</script>
-		 -->
+		
 
 		<script type="module">
 
 			// importmapと一緒に使用し、three.module.jsをimportするため
-			// import * as THREE from 'three';
+			import * as THREE from 'three';
 			// 上記と同じ内容
 			// import * as THREE from "https://unpkg.com/three/build/three.module.js";
 			
 
-
 			
 
 
-      import { THREE }  from './three.module.js';  // ファイルパスを正確に指定する
+      // import * as THREE from './three.module.js';  // ファイルパスを正確に指定する
 
 			// GLTFファイル使用用
 			import { GLTFLoader } from './GLTFLoader.js';
