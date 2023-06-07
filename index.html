@@ -1,10 +1,10 @@
 <!-- 
-	WebAR_test_8
+	WebAR_test_9
 
 	ソースコードを参考にGLTF形式の3Dモデルを取り込み表示
 	hittest
 	平面を検知して、画面をタップした時に、サークルの位置に3Dモデルが表示される
-	タップしたらタップした分増えていく
+	タップしたら表示され、前の物は消える → 移動しているように見せる
 
 	ソースコード
 	https://github.com/mrdoob/three.js/blob/master/examples/jsm/webxr/ARButton.js
@@ -39,14 +39,14 @@
 
 
 
-		
-		<script type="importmap">
+		<!--  importmapと一緒に使用し、three.module.jsをimportするため -->
+		<!-- <script type="importmap">
 			{
 				"imports": {
 					"three": "https://unpkg.com/three/build/three.module.js"
 				}
 			}
-		</script>
+		</script> -->
 		
 
 		<script type="module">
